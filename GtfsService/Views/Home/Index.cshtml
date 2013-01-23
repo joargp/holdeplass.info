@@ -1,0 +1,88 @@
+﻿@model dynamic
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Holdeplassøk for busser i Rogaland</title>
+    @Styles.Render("~/Content/css")
+    <!-- The Columnal Grid (1140px wide base, load first), Type and image presets, and mobile stylesheet -->
+    <link rel="stylesheet" href="~/css/columnal.css" type="text/css" media="screen" />
+
+    <!-- Fixes for IE -->
+    <!--[if lt IE 9]>
+    	<link rel="stylesheet" href="~/css/ie.css" type="text/css" media="screen" />
+	<![endif]-->
+
+    <!-- use "fixed-984px-ie.css" or "fixed-960px-ie.css for a 984px or 960px fixed width for IE6 and 7 -->
+    <!--[if lte IE 7]>
+		<link rel="stylesheet" href="~/css/fixed-984px-ie.css" type="text/css" media="screen" />
+	<![endif]-->
+
+    <!-- Fixes for IE6, only needed if IE 6 will be supported - width must match 984px or 960px of css file used above -->
+    <!-- Use .imagescale to fix IE6 issues with full-column width images (class must be added to any image wider than the column it is placed into) -->
+    <!--[if lte IE 6]>
+		<link rel="stylesheet" href="~/css/ie6-984px.css" type="text/css" media="screen" />
+	<![endif]-->
+    <!-- End fixes for IE -->
+
+    <!-- Customizations here -->
+    <link rel="stylesheet" href="~/css/custom.css" type="text/css" media="screen" />
+
+    <!-- Page build tools - only needed while creating a site, remove when launching - Gray box colors and page debugging tools -->
+    <link rel="stylesheet" href="~/css/build.css" type="text/css" media="screen" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <link href="~/Content/themes/base/jquery.ui.autocomplete.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#somevalue').autocomplete({
+                source: '@Url.Action("Autocomplete")',
+                select: function (a, b) {
+                    $(this).val(b.item.value);
+                    $(".search").submit();
+                },
+            });
+        });
+        $(document).ready(function () {
+            $("#somevalue").focus();
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="pre_3 col_6 last">
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "search" }))
+                {
+                    <fieldset>
+                        <legend>Søk</legend>
+                        <input type="text" id="somevalue" name="somevalue" placeholder="Holdeplass" />
+                        <input type="submit" value="Søk" />
+                    </fieldset>
+                }
+            </div>
+            <div class="row">
+                <div class="pre_4 col_4">
+                @if (ViewBag.SearchResult != null)
+                {
+                    <div style="width: 50%; margin-left: 25%">
+                        @Html.Raw(ViewBag.SearchResult)
+                    </div>
+           
+                }
+            </div>
+            </div>
+            
+        </div>
+
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+@model GtfsService.Models.Trip
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Trip</legend>
+
+    <div class="display-label">TripNumber</div>
+    <div class="display-field">@Model.TripNumber</div>
+
+    <div class="display-label">Headsign</div>
+    <div class="display-field">@Model.Headsign</div>
+
+    <div class="display-label">ShapeId</div>
+    <div class="display-field">@Model.ShapeId</div>
+
+    <div class="display-label">ServiceId</div>
+    <div class="display-field">@Model.ServiceId</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

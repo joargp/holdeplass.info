@@ -1,0 +1,29 @@
+@model GtfsService.Models.Trip
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Trip</legend>
+
+    <div class="display-label">TripNumber</div>
+    <div class="display-field">@Model.TripNumber</div>
+
+    <div class="display-label">Headsign</div>
+    <div class="display-field">@Model.Headsign</div>
+
+    <div class="display-label">ShapeId</div>
+    <div class="display-field">@Model.ShapeId</div>
+
+    <div class="display-label">ServiceId</div>
+    <div class="display-field">@Model.ServiceId</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

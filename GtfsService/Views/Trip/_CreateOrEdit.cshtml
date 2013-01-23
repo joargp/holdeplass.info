@@ -1,0 +1,36 @@
+@model GtfsService.Models.Trip
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.TripNumber)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.TripNumber)
+    @Html.ValidationMessageFor(model => model.TripNumber)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Headsign)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Headsign)
+    @Html.ValidationMessageFor(model => model.Headsign)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.ShapeId)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.ShapeId)
+    @Html.ValidationMessageFor(model => model.ShapeId)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.ServiceId)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.ServiceId)
+    @Html.ValidationMessageFor(model => model.ServiceId)
+</div>
+

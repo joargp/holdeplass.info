@@ -1,0 +1,41 @@
+@model GtfsService.Models.Stop
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Stop</legend>
+
+    <div class="display-label">Lat</div>
+    <div class="display-field">@Model.Lat</div>
+
+    <div class="display-label">ZoneId</div>
+    <div class="display-field">@Model.ZoneId</div>
+
+    <div class="display-label">Lon</div>
+    <div class="display-field">@Model.Lon</div>
+
+    <div class="display-label">Url</div>
+    <div class="display-field">@Model.Url</div>
+
+    <div class="display-label">StopNumber</div>
+    <div class="display-field">@Model.StopNumber</div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">@Model.Description</div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">LocationType</div>
+    <div class="display-field">@Model.LocationType</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
