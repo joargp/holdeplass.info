@@ -35,10 +35,10 @@
 
     <!-- Page build tools - only needed while creating a site, remove when launching - Gray box colors and page debugging tools -->
     <link rel="stylesheet" href="~/css/build.css" type="text/css" media="screen" />
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script src="~/Scripts/jquery-1.9.0.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.20.js"></script>
     <link href="~/Content/themes/base/jquery.ui.autocomplete.css" rel="stylesheet" />
+    <script src="~/Scripts/home.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#somevalue').autocomplete({
@@ -46,18 +46,18 @@
                 select: function (a, b) {
                     $(this).val(b.item.value);
                     $(".search").submit();
+
                 },
             });
         });
-        $(document).ready(function () {
-            $("#somevalue").focus();
-        });
     </script>
+    <script src="~/Scripts/home.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="container test">
         <div class="row">
-            <div class="pre_3 col_6 last">
+            <div class="col_3"></div>
+            <div class="col_6">
                 @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "search" }))
                 {
                     <fieldset>
@@ -67,8 +67,12 @@
                     </fieldset>
                 }
             </div>
-            <div class="row">
-                <div class="pre_4 col_4">
+            <div class="col_3"></div>
+
+        </div>
+        <div class="row">
+            <div class="col_3"></div>
+            <div class="col_6">
                 @if (ViewBag.SearchResult != null)
                 {
                     <div style="width: 50%; margin-left: 25%">
@@ -77,9 +81,9 @@
            
                 }
             </div>
-            </div>
-            
         </div>
+
+    </div>
 
 
 
